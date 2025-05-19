@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Caprum';
+    src: url("/fonts/Cuprum/Cuprum-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: 'Helvetica';
+    src: url("/fonts/Helvetica/Helvetica.ttf");
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url("/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf");
+}

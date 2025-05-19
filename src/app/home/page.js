@@ -15,13 +15,20 @@ const images = [
 export default function HomePage() {
   return (
     <div className={styles.wrapper}>
+  
       <div style={{
         width: '310px',
         height: '500px',
         backgroundColor: '#d7baaa',
         zIndex: -1,
-        borderRadius: '10px'
-      }}></div>
+        borderRadius: '10px',
+        position: 'relative',
+      }}>
+        <div className={styles.title}>
+          <h1>Sar collection</h1>
+          <p>*</p>
+        </div>
+      </div>
 
       {images.map((img, index) => (
         <div

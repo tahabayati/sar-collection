@@ -1,3 +1,5 @@
+
+
 .wrapper {
   position: fixed;
   display: flex;
@@ -59,4 +61,21 @@
 
 .content img {
   border-radius: 25px;
+}
+
+
+.title{
+  position: absolute;
+  top: -60px;
+  left: 5px;
+  font-family: Caprum;
+  color: #d7baaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title p{
+  font-family: Helvetica;
+  color: #d7baaa;
+  width: 100;
 }
