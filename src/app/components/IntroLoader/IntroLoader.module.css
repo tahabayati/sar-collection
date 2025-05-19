@@ -1,0 +1,70 @@
+/* --- fixed full-screen wrapper while the animation runs --- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;          /* black backdrop during motion */
+}
+
+/* after animation ends → switch to this class so the block
+   becomes part of normal page flow (no longer fixed) */
+.loaderStatic {
+  position: relative;
+  background: transparent;   /* blend into page */
+  height: auto;
+  align-items: flex-start;
+  padding-top: 4rem;         /* optional breathing room */
+}
+
+/* --- vertical image column --- */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;                /* large vertical gaps */
+}
+
+/* fast upward scroll (3 s) */
+.scroll {
+  animation: scrollUpFast 3s cubic-bezier(0.35, 0, 0.65, 1) forwards;
+}
+
+/* gentle zoom-out right after scrolling stops */
+.zoom {
+  animation: zoomOut 0.8s ease-out forwards;
+  align-items: center;       /* keep hero centred */
+}
+
+/* individual images */
+.img {
+  width: 300px;              /* mobile width (override via media if desired) */
+  max-width: 80vw;
+  object-fit: cover;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+/* hero image grows */
+.heroZoom {
+  transform: scale(1.5);
+}
+
+/* non-hero images fade / slide away */
+.fadeOut {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* -------- keyframes -------- */
+@keyframes scrollUpFast {
+  0%   { transform: translateY(100vh); }
+  /* tune −250vh so LAST image halts roughly in the centre */
+  100% { transform: translateY(-250vh); }
+}
+
+@keyframes zoomOut {
+  0%   { transform: scale(1);   }
+  100% { transform: scale(0.85); }
+}

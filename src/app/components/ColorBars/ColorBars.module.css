@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+/* all bars use slideInOut by default */
+.bar {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  animation: slideInOut 4s ease-in-out forwards;
+}
+
+/* override the last bar to only slide in and stay */
+.container > :last-child {
+  animation-name: slideIn !important;
+}
+
+@keyframes slideInOut {
+  0%   { transform: translateY(100%); }
+  20%  { transform: translateY(0); }
+  80%  { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes slideIn {
+  0%   { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}

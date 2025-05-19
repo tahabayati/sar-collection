@@ -1,15 +1,45 @@
 'use client'
+import styles from './home.module.css'
+import Image from 'next/image'
 
-import Header from '../components/Header/Header'
+const images = [
+  { src: '/images/image1.webp', alt: 'Image 1' },
+  { src: '/images/image2.webp', alt: 'Image 2' },
+  { src: '/images/image3.webp', alt: 'Image 3' },
+  { src: '/images/image4.webp', alt: 'Image 4' },
+  { src: '/images/image5.webp', alt: 'Image 5' },
+  { src: '/images/image6.webp', alt: 'Image 6' },
+  { src: '/images/image7.webp', alt: 'Image 7' }
+]
 
 export default function HomePage() {
   return (
-    <>
-      <Header />
-      <main className="p-4">
-        <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
-        <p className="mt-2 text-gray-600">This is the starting point of your client-side app.</p>
-      </main>
-    </>
+    <div className={styles.wrapper}>
+      <div style={{
+        width: '310px',
+        height: '500px',
+        backgroundColor: '#d7baaa',
+        zIndex: -1,
+        borderRadius: '10px'
+      }}></div>
+
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`${styles.panel} ${index === images.length - 1 ? styles.stay : ''}`}
+          style={{ '--i': index }}
+        >
+          <div className={styles.content}>
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={270}
+              height={450}
+              priority={index === images.length - 1}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
