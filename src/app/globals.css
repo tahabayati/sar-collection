@@ -10,3 +10,10 @@
     font-family: 'Roboto';
     src: url("/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf");
 }
+
+body {
+    margin: 0;
+    padding: 0;
+     background-color: #502c38;
+
+}
